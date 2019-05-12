@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+{% block body %}
+<section class="page-header overlay-gradient" style="background: url(assets/images/posters/movie-collection.jpg);">
+</section>
+
+<!-- =============== START OF MAIN =============== -->
+<main class="contact-page ptb100">
+    <div class="container">
+        <div class="row">
+            <!-- Start of Contact Details -->
+            <div class="col-md-2 col-sm-6">
+                <div class="details-wrapper">
+                    <ul class="contact-details">
+                        <li><button id="collection_b" class="btn btn-main">收藏电影</button></li>
+                        <li><button id="movlist_b" class="btn btn-main">我的影单</button></li>
+                        <li><button id="score_b" class="btn btn-main">我的评分</button></li>
+                        <li><button id="comment_b" class="btn btn-main">我的评论</button></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="show_div" class="col-md-10 col-sm-12">
+
+                <div id="collection_div" style="display:none;">
+                    <h5 id="collection_h"></h5>
+                    {% include 'movie_list_part.html' %}
+                </div>
+
+                <div id="movlist_div" style="display:none;">
+                    <h5 id="movlist_h"></h5>
+                    <a id="add_movlist_a">创建影单</a>
+                    {% include 'movlist_list_part.html' %}
+                </div>
+                <div id="score_div" style="display:none;">
+                    <h5 id="score_h"></h5>
+                    <main class="ptb30">
+                        <div class="container">
+                            <!-- Start of Movie List -->
+                            <div id="score_list" class="row">
+                                <div class="col-md-12 col-sm-12" style="cursor:pointer">
+                                    <div class="watch-later-item">
+                                        <div class="listing-container">
+                                            <!-- Movie List Image -->
+                                            <div class="listing-image">
+                                                <img class="img-shadow" alt="">
+                                            </div>
+                                            <!-- Movie List Content -->
+                                            <div class="listing-content">
+                                                <div class="inner">
+                                                    <h5 class="title"></h5>
+                                                    <p></p>
+                                                    {% include 'star_part.html' %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </main>
+                </div>
+                <div id="comment_div" style="display:none;">
+                    <h5 id="comment_h"></h5>
+                    {% include 'comment_part.html' %}
+                </div>
+            </div>
+
+        </div>
+    </div>
+</main><!-- =============== END OF MAIN =============== -->
+<div class="modal fade" id="add_movlist_dialog" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form id="add_movlist_form" method="POST">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <input name="movlist_title" class="form-control" placeholder="影单标题" required />
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-main btn-effect">提交</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
+
+{% block script %}
+<script src="/static/js/my/user.js"></script>
+{% endblock %}

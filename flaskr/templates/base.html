@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <META HTTP-EQUIV="pragma" CONTENT="no-cache">
+    <META HTTP-EQUIV="Cache-Control" CONTENT="no-store, must-revalidate">
+    <meta http-equiv="expires" content="0" />
+
+    <title>Movify - Movies</title>
+    <link rel="shortcut icon" href="/static/images/favicon.png" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="57x57" href="/static/images/apple-touch-icon-iphone.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/static/images/apple-touch-icon-ipad.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/static/images/apple-touch-icon-iphone-retina.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/static/images/apple-touch-icon-ipad-retina.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="/static/images/apple-touch-icon-ipad-pro.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/images/apple-touch-icon-iphone-6-plus.png">
+    <link rel="icon" sizes="192x192" href="/static/images/icon-hd.png">
+    <link rel="icon" sizes="128x128" href="/static/images/icon.png">
+
+    <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/revolution/css/settings.css">
+    <link rel="stylesheet" type="text/css" href="/static/revolution/css/layers.css">
+    <link rel="stylesheet" type="text/css" href="/static/revolution/css/navigation.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/magnific-popup.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/jquery.mmenu.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/owl.carousel.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/responsive.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/toastr.min.css">
+    </link>
+</head>
+
+<body>
+
+
+
+
+    <!-- =============== START OF RESPONSIVE - MAIN NAV =============== -->
+    <nav id="main-mobile-nav"></nav>
+    <!-- =============== END OF RESPONSIVE - MAIN NAV =============== -->
+
+    <!-- =============== START OF WRAPPER =============== -->
+    <div class="wrapper">
+        <!-- =============== START OF HEADER NAVIGATION =============== -->
+        <!-- Insert the class "sticky" in the header if you want a sticky header -->
+        <header class="header header-fixed header-transparent text-white">
+            <div class="container-fluid">
+                <!-- ====== Start of Navbar ====== -->
+                <nav class="navbar navbar-expand-lg">
+                    <a class="navbar-brand" href="/">
+                        <!-- INSERT YOUR LOGO HERE -->
+                        <img src="/static/images/logo.svg" alt="logo" width="150" class="logo">
+                        <!-- INSERT YOUR WHITE LOGO HERE -->
+                        <img src="/static/images/logo-white.svg" alt="white logo" width="150" class="logo-white">
+                    </a>
+                    <button id="mobile-nav-toggler" class="hamburger hamburger--collapse" type="button">
+                        <span class="hamburger-box">
+                            <span class="hamburger-inner"></span>
+                        </span>
+                    </button>
+
+                    <!-- ====== Start of #main-nav ====== -->
+                    <div class="navbar-collapse" id="main-nav">
+                        <!-- ====== Start of Main Menu ====== -->
+                        <ul class="navbar-nav mx-auto" id="main-menu">
+                            <!-- Menu Item -->
+                            <li class="nav-item"><a class="nav-link" href="/">主页</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/top_movie">高分榜</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/hot_movie">热评榜</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/lately_movie">近期上映</a></li>
+                            <li class="nav-item"><a class="nav-link" href="recommend_movie">推荐电影</a></li>
+                            <li class="nav-item"><a class="nav-link" href="recommend_movlist">推荐影单</a></li>
+                        </ul>
+                        <!-- ====== End of Main Menu ====== -->
+
+                        <!-- ====== Start of Extra Nav ====== -->
+                        <ul class="navbar-nav extra-nav">
+                            <!-- Menu Item -->
+                            <li class="nav-item">
+                                <a class="nav-link toggle-search" href="#">
+                                    <i class="fa fa-search"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item m-auto">
+                                <a id="account" href="#login-register-popup"
+                                    class="btn btn-main btn-effect login-btn popup-with-zoom-anim">
+                                    <i class="icon-user"></i>
+                                    login
+                                </a>
+                            </li>
+                        </ul>
+                        <!-- ====== End of Extra Nav ====== -->
+                    </div>
+                    <!-- ====== End of #main-nav ====== -->
+                </nav>
+                <!-- ====== End of Navbar ====== -->
+            </div>
+        </header>
+        <!-- =============== END OF HEADER NAVIGATION =============== -->
+
+
+
+        {% block body %} {% endblock %}
+
+        <!-- =============== START OF GENERAL SEARCH WRAPPER =============== -->
+        <div class="general-search-wrapper">
+            <form class="general-search" role="search" method="get" action="/movie/search">
+                <input name='q' type="text" placeholder="Enter Movies">
+                <span id="general-search-close" class="ti-close toggle-search"></span>
+            </form>
+        </div>
+        <!-- =============== END OF GENERAL SEARCH WRAPPER =============== -->
+
+
+        <!-- =============== START OF LOGIN & REGISTER POPUP =============== -->
+        <div id="login-register-popup" class="small-dialog zoom-anim-dialog mfp-hide">
+            <!-- ===== Start of Signin wrapper ===== -->
+            <div class="signin-wrapper">
+                <div class="small-dialog-headline">
+                    <h4 class="text-center">登录</h4>
+                </div>
+                <div class="small-dialog-content">
+                    <!-- Start of Login form -->
+                    <form id="sigin" method="POST">
+                        <p class="status"></p>
+                        <div class="form-group"><label for="username">邮箱</label>
+                            <input type="text" class="form-control" name="email" required />
+                        </div>
+                        <div class="form-group"><label for="password">密码</label>
+                            <input type="password" class="form-control" name="pwd" required />
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="登录" class="btn btn-main btn-effect nomargin" />
+                        </div>
+                    </form><!-- End of Login form -->
+                    <div class="bottom-links">
+                        <span>
+                            没有账户？
+                            <a class="signUpClick">注册</a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <!-- ===== End of Signin wrapper ===== -->
+
+            <!-- ===== Start of Signup wrapper ===== -->
+            <div class="signup-wrapper">
+                <div class="small-dialog-headline">
+                    <h4 class="text-center">注册</h4>
+                </div>
+                <div class="small-dialog-content">
+                    <!-- Start of Registration form -->
+                    <form id="signup" method="POST">
+                        <p class="status"></p>
+                        <div class="form-group">
+                            <label for="movify_user_login">用户名</label>
+                            <input name="nm" class="form-control" type="text" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="movify_user_email">邮箱</label>
+                            <input name="email" class="form-control" type="email" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="password">密码</label>
+                            <input name="pwd" class="form-control" type="password" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="password">确认密码</label>
+                            <input name="more_pwd" class="form-control" type="password" required />
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-main btn-effect nomargin" value="注册" />
+                        </div>
+                    </form>
+                    <!-- End of Registration form -->
+                    <div class="bottom-links"><span>已有账户? <a class="signInClick">登录</a></span>
+                    </div>
+                    <!-- .small-dialog-content -->
+                </div>
+                <!-- ===== End of Signup wrapper ===== -->
+
+            </div>
+            <!-- =============== END OF LOGIN & REGISTER POPUP =============== -->
+        </div>
+
+        <!-- ===== Start of Back to Top Button ===== -->
+        <div id="backtotop"><a href="#"></a></div>
+        <!-- ===== End of Back to Top Button ===== -->
+
+
+
+
+
+        <script src="/static/js/common/jquery-3.2.1.min.js"></script>
+        <script src="/static/js/common/bootstrap.min.js"></script>
+        <script src="/static/js/common/jquery.ajaxchimp.js"></script>
+        <script src="/static/js/common/jquery.magnific-popup.min.js"></script>
+        <script src="/static/js/common/jquery.mmenu.js"></script>
+        <script src="/static/js/common/jquery.inview.min.js"></script>
+        <script src="/static/js/common/jquery.countTo.min.js"></script>
+        <script src="/static/js/common/jquery.countdown.min.js"></script>
+        <script src="/static/js/common/owl.carousel.min.js"></script>
+        <script src="/static/js/common/imagesloaded.pkgd.min.js"></script>
+        <script src="/static/js/common/isotope.pkgd.min.js"></script>
+        <script src="/static/js/common/headroom.js"></script>
+        <script src="/static/js/common/custom.js"></script>
+        <script type="text/javascript" src="/static/js/common/jquery.cookie.js"></script>
+        <script type="text/javascript" src="/static/revolution/js/jquery.themepunch.tools.min.js"></script>
+        <script type="text/javascript" src="/static/revolution/js/jquery.themepunch.revolution.min.js"></script>
+        <script type="text/javascript" src="/static/revolution/js/extensions/revolution.extension.actions.min.js">
+        </script>
+        <script type="text/javascript" src="/static/revolution/js/extensions/revolution.extension.carousel.min.js">
+        </script>
+        <script type="text/javascript" src="/static/revolution/js/extensions/revolution.extension.kenburn.min.js">
+        </script>
+        <script type="text/javascript" src="/static/revolution/js/extensions/revolution.extension.layeranimation.min.js">
+        </script>
+        <script type="text/javascript" src="/static/revolution/js/extensions/revolution.extension.migration.min.js">
+        </script>
+        <script type="text/javascript" src="/static/revolution/js/extensions/revolution.extension.navigation.min.js">
+        </script>
+        <script type="text/javascript" src="/static/revolution/js/extensions/revolution.extension.parallax.min.js">
+        </script>
+        <script type="text/javascript" src="/static/revolution/js/extensions/revolution.extension.slideanims.min.js">
+        </script>
+        <script type="text/javascript" src="/static/revolution/js/extensions/revolution.extension.video.min.js">
+        </script>
+        <script src="/static/js/common/toastr.min.js"></script>
+        <script src="/static/js/my/base.js"></script>
+        <script src="/static/js/my/tools.js"></script>
+
+        {% block script %}
+        {% endblock %}
+
+
+</body>
+
+</html>

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block body %}
+<section class="page-header overlay-gradient" style="background: url(assets/images/posters/movie-collection.jpg);">
+</section>
+
+<h3 class="text-center">{{title}}</h3>
+<api hidden>{{api}}</api>
+
+{% include 'movie_grid_part.html' %}
+
+<button id="load_more" class="btn btn-main btn-effect">加载更多</button>
+
+{% endblock %}
+
+{% block script %}
+
+{% endblock %}
