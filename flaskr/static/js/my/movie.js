@@ -146,6 +146,7 @@ $(document).ready(function () {
                 $("#movie_imdb_id").attr("href", "https://www.imdb.com/title/" + movie.imdb_id)
                 $("#movie_tmdb_id").text(movie.tmdb_id)
                 $("#movie_tmdb_id").attr("href", "https://www.themoviedb.org/movie/" + movie.tmdb_id)
+                
             },
             error: function (data) {
                 toastr.error('获取失败！')

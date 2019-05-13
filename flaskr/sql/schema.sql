@@ -21,7 +21,6 @@ CREATE TABLE movie_info (
 );
 
 
-
 CREATE TABLE movlist(
     id INT PRIMARY KEY AUTO_INCREMENT,
     title VARCHAR(255),
@@ -29,7 +28,6 @@ CREATE TABLE movlist(
     user_id INT,
     FOREIGN KEY (user_id) REFERENCES user_info(id) ON DELETE CASCADE
 );
-
 
 
 CREATE TABLE movie_comment( 
@@ -63,7 +61,7 @@ CREATE TABLE collection_movie(
 CREATE TABLE movlist_movie(
     movlist_id INT,
     movie_id INT,
-N    PRIMARY KEY(movie_id,movlist_id),
+    PRIMARY KEY(movie_id,movlist_id),
     FOREIGN KEY (movlist_id) REFERENCES movlist(id) ON DELETE CASCADE,
     FOREIGN KEY (movie_id) REFERENCES movie_info(id) ON DELETE CASCADE
 
