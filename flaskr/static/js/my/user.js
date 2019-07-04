@@ -138,7 +138,6 @@ $(document).ready(function () {
     var $add_movlist_form = $("#add_movlist_form")
     $add_movlist_form.submit(function () {
         movlist_title = $("input[name='movlist_title']", $add_movlist_form).val()
-        alert(movlist_title)
         $.ajax({
             type: "POST",
             url: "/api/movlists",

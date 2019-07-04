@@ -40,6 +40,8 @@ def movie_search():
         sql = "SELECT * FROM movie_info WHERE title LIKE %s OR original_title LIKE %s"
         count = db_tool.print_and_try(cursor, sql, (q, q))
         movies = cursor.fetchall()
+    for movie in movies:
+        movie['release_date'] = other.date_string(movie['release_date'])
     return jsonify({
         "count" : count,
         "movies" : movies

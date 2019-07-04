@@ -180,7 +180,6 @@ $(document).ready(function () {
 
     $comment_form.submit(function () {
         content_text = $("textarea[name='content_text']", $comment_form).val()
-        alert(content_text)
         $.ajax({
             type: "POST",
             url: "/api/comments",
@@ -203,7 +202,6 @@ $(document).ready(function () {
     });
 
     $movlist_from.submit(function () {
-        alert("aaaaaaaaaaaaaa")
         var vals = [];
         $('input:checkbox:checked', $movlist_from).each(function (index, item) {
             vals.push($(this).val());
@@ -304,7 +302,7 @@ $(document).ready(function () {
                 show_movie_grid($("#movie_grid"), data.movies);
             },
             error: function (data) {
-                alert('error');
+                toastr.error('获取失败！')
             }    
         });
     }

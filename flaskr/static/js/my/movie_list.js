@@ -16,7 +16,7 @@ $(document).ready(function () {
                 
             },
             error: function (data) {
-                alert('error');
+                toastr.error('获取失败！')
             }    
         });
     };

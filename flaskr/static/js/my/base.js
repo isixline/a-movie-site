@@ -61,7 +61,7 @@ $(document).ready(function () {
                 window.location.reload();
             },
             error: function (data) {
-                alert('error');
+                toastr.error('获取失败！')
             }
         });
     }
